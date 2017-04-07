@@ -1,0 +1,106 @@
+<!-- Created by Srividhya Chandrasekharan on April6th, 2017 -->
+<!doctype html>
+<html lang="en-US">
+<head>
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fauna+One|Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fauna+One|Monoton|Ubuntu" rel="stylesheet">
+<title>SCRAPING GITHUB</title>
+<link rel = "stylesheet" type = "text/css" href = "style.css" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+<div id="window">
+<h1>GitHub Stalking made easy!</h1>
+<p>Enter a Github username and check out public repos of the user..</p>
+<input type="text" id="namefield" placeholder="Git username"></input>
+<a href="#" id="submit">HIT IT!</a></div>
+<div id="result"></div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('#submit').on('click',function(){
+
+		var username = $('#namefield').val();
+		var user_req   = 'https://api.github.com/users/'+username;
+    	var repo_req  = 'https://api.github.com/users/'+username+'/repos';
+
+    	if (username=='')
+	 	{
+	 		$('#result').html("<h3>NO USERNAME ENTERED!</h2>");
+	 	}
+
+	 else
+	 {
+	 	$.getJSON(user_req, function(j) {
+	 	if(j.message=="Not Found")
+	 		$('#result').html("<h2>NOT FOUND BRUH!!</h2>");
+	 	else
+	 	{
+	 		var email = j.email;
+	 		var full_name=j.name;
+	 		var followers = j.followers;
+	 		var following=j.following;
+	 		var html_url = j.html_url;
+	 		var github_handle = j.login
+	 		var location=j.location
+	 		var public_repo_count = j.public_repos
+	 		var dp = j.avatar_url;
+	 		var l="float:left"
+	 		var r="float:center"
+	 		var c="float:center"
+	 		var flag=false;
+
+	 		var profile_html="<div style="+r+"><a href="+html_url+">@"+github_handle+"</a></div>"
+	 		var info_html="<div style="+c+"><h2>"+full_name+profile_html+"</h2></div>"
+
+	 		var follower_html=""+full_name+" has "+followers+" followers and follows "+following+" users	 on Github."
+	 		var dp_html="<div style="+l+"><img src="+dp+"height=150 width=150/></div>";
+	 		if(location!=null)
+	 		{
+	 			var loc_html=" Lives in "+location+"."
+	 			flag=true
+	 		}
+	 		var rep_html=" Has "+public_repo_count+" public repositories. <br>	<br><br>"
+
+	 		//$('#result').html(info_html+dp_html+follower_html+loc_html+rep_html);
+	 	
+	 	$.getJSON(repo_req, function(repo) {
+	 		var text="<ul>"
+	 		if(repo.length==0)
+	 		{
+	 			$('#result').html("<h2>NO PUBLIC REPOS FOUND BRUH!!</h2>");
+	 		}
+	 		else
+	 		{
+	 			$.each(repo,function(i){
+	 				var repo_name = repo[i].name
+	 				var repo_link = repo[i].html_url
+	 				var repo_desc = repo[i].description
+	 				if(repo_desc==null)
+	 					repo_desc=""
+	 				var repo_lang = repo[i].language
+	 				text=text+"<li><a href="+repo_link+">"+repo_name+"</a> : "+repo_desc+"</li>"
+	 		})
+	 			text=text+"</ul>"
+	 			if(flag==false)
+	 			{
+	 				loc_html=""
+	 			}
+	 			$('#result').html(dp_html+info_html+follower_html+loc_html+rep_html+text)
+	 		}
+	 			
+	 	});
+
+	 	}//end of else
+
+	 });
+	}
+
+	})//on click
+	
+});//end of script	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+h1 {
+   color: grey;
+ text-align: center;
+ font-family: 'Indie Flower', cursive;
+ letter-spacing: +5px;
+ font-size : 50px;
+ margin-bottom: 10px;
+}
+
+
+h3
+{
+  color: red;
+ text-align: center;
+ font-family: 'Indie Flower', cursive;
+ letter-spacing: +9px;
+ font-size : 30px;
+ margin-bottom: 10px;
+}
+
+
+#window {
+	   
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+     font-size : 25px;
+     letter-spacing: +4px;
+}
+
+#result
+{
+    font-family: 'Fauna One', serif;
+font-family: 'Ubuntu', sans-serif;
+     font-size : 20px;
+}
+
