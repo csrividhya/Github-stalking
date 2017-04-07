@@ -1,7 +1,7 @@
-Repo for a web application that uses Github API to pull a user's public repository information. 
-
 Created by Srividhya Chandrasekharan on 07-April-2017.
 ================
+
+Repo for a web application that uses Github API to pull a user's public repository information. 
 
 The repo contains an index.html file, it's corresponding CSS file(style.css) and for a quicker loading, the JQuery JS file(jquery.min.js).
 
@@ -10,7 +10,7 @@ For eg) curl https://api.github.com/users/defunkt (OR)  curl https://api.github.
 
 The results got were printed in a structured manner using a division whose content is set based on the details returned by the API's or with an error message in case the username is incorrect. 
 
-I used an inline javascript code using the 'script' tag mainly because it is easier to access the HTML elements. JQuery was used to get JSON response from API. 
+I used an inline javascript code using the 'script' tag mainly because it is easier to access the HTML elements. JQuery was used to get JSON response from API. I used Python's HTTP server for development. 
 
 Trade-offs I made :- The aesthetic appeal of the web app is not much. I focussed on getting the code working so that the web app does exactly what this challenge was about. If I were to spend additional time, I would definitely experiment with a whole lot of CSS styling to make the web app cool. And also, I'd have several tabs for the user info returned - Repos , Personal , Company etc. 
 
