@@ -1,6 +1,7 @@
 Repo for a web application that uses Github API to pull a user's public repository information. 
 
 Created by Srividhya Chandrasekharan on 07-April-2017.
+================
 
 The repo contains an index.html file, it's corresponding CSS file(style.css) and for a quicker loading, the JQuery JS file(jquery.min.js).
 
