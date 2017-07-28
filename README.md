@@ -14,4 +14,3 @@ I used an inline javascript code using the 'script' tag mainly because it is eas
 
 Trade-offs I made :- The aesthetic appeal of the web app is not much. I focussed on getting the code working so that the web app does exactly what this challenge was about. If I were to spend additional time, I would definitely experiment with a whole lot of CSS styling to make the web app cool. And also, I'd have several tabs for the user info returned - Repos , Personal , Company etc. 
 
-Here's a link to my up-to-date resume - http://web.cse.ohio-state.edu/~chandrasekharan.12/resume.pdf
